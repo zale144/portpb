@@ -102,17 +102,88 @@ func (m *PortBatchRsp) GetSuccess() bool {
 	return false
 }
 
+type GetPortsReq struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetPortsReq) Reset()         { *m = GetPortsReq{} }
+func (m *GetPortsReq) String() string { return proto.CompactTextString(m) }
+func (*GetPortsReq) ProtoMessage()    {}
+func (*GetPortsReq) Descriptor() ([]byte, []int) {
+	return fileDescriptor_729c3d36e9010a8e, []int{2}
+}
+
+func (m *GetPortsReq) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetPortsReq.Unmarshal(m, b)
+}
+func (m *GetPortsReq) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetPortsReq.Marshal(b, m, deterministic)
+}
+func (m *GetPortsReq) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetPortsReq.Merge(m, src)
+}
+func (m *GetPortsReq) XXX_Size() int {
+	return xxx_messageInfo_GetPortsReq.Size(m)
+}
+func (m *GetPortsReq) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetPortsReq.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetPortsReq proto.InternalMessageInfo
+
+type GetPortsRsp struct {
+	Ports                []*Port  `protobuf:"bytes,1,rep,name=ports,proto3" json:"ports,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetPortsRsp) Reset()         { *m = GetPortsRsp{} }
+func (m *GetPortsRsp) String() string { return proto.CompactTextString(m) }
+func (*GetPortsRsp) ProtoMessage()    {}
+func (*GetPortsRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_729c3d36e9010a8e, []int{3}
+}
+
+func (m *GetPortsRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetPortsRsp.Unmarshal(m, b)
+}
+func (m *GetPortsRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetPortsRsp.Marshal(b, m, deterministic)
+}
+func (m *GetPortsRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetPortsRsp.Merge(m, src)
+}
+func (m *GetPortsRsp) XXX_Size() int {
+	return xxx_messageInfo_GetPortsRsp.Size(m)
+}
+func (m *GetPortsRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetPortsRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetPortsRsp proto.InternalMessageInfo
+
+func (m *GetPortsRsp) GetPorts() []*Port {
+	if m != nil {
+		return m.Ports
+	}
+	return nil
+}
+
 type Port struct {
-	Name                 string    `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	City                 string    `protobuf:"bytes,2,opt,name=city,proto3" json:"city,omitempty"`
-	Country              string    `protobuf:"bytes,3,opt,name=country,proto3" json:"country,omitempty"`
-	Alias                []string  `protobuf:"bytes,4,rep,name=alias,proto3" json:"alias,omitempty"`
-	Regions              []string  `protobuf:"bytes,5,rep,name=regions,proto3" json:"regions,omitempty"`
-	Coordinates          []float64 `protobuf:"fixed64,6,rep,packed,name=coordinates,proto3" json:"coordinates,omitempty"`
-	Province             string    `protobuf:"bytes,7,opt,name=province,proto3" json:"province,omitempty"`
-	Timezone             string    `protobuf:"bytes,8,opt,name=timezone,proto3" json:"timezone,omitempty"`
-	Unlocs               []string  `protobuf:"bytes,9,rep,name=unlocs,proto3" json:"unlocs,omitempty"`
-	Code                 string    `protobuf:"bytes,10,opt,name=code,proto3" json:"code,omitempty"`
+	Id                   string    `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name                 string    `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	City                 string    `protobuf:"bytes,3,opt,name=city,proto3" json:"city,omitempty"`
+	Country              string    `protobuf:"bytes,4,opt,name=country,proto3" json:"country,omitempty"`
+	Alias                []string  `protobuf:"bytes,5,rep,name=alias,proto3" json:"alias,omitempty"`
+	Regions              []string  `protobuf:"bytes,6,rep,name=regions,proto3" json:"regions,omitempty"`
+	Coordinates          []float64 `protobuf:"fixed64,7,rep,packed,name=coordinates,proto3" json:"coordinates,omitempty"`
+	Province             string    `protobuf:"bytes,8,opt,name=province,proto3" json:"province,omitempty"`
+	Timezone             string    `protobuf:"bytes,9,opt,name=timezone,proto3" json:"timezone,omitempty"`
+	Unlocs               []string  `protobuf:"bytes,10,rep,name=unlocs,proto3" json:"unlocs,omitempty"`
+	Code                 string    `protobuf:"bytes,11,opt,name=code,proto3" json:"code,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
 	XXX_unrecognized     []byte    `json:"-"`
 	XXX_sizecache        int32     `json:"-"`
@@ -122,7 +193,7 @@ func (m *Port) Reset()         { *m = Port{} }
 func (m *Port) String() string { return proto.CompactTextString(m) }
 func (*Port) ProtoMessage()    {}
 func (*Port) Descriptor() ([]byte, []int) {
-	return fileDescriptor_729c3d36e9010a8e, []int{2}
+	return fileDescriptor_729c3d36e9010a8e, []int{4}
 }
 
 func (m *Port) XXX_Unmarshal(b []byte) error {
@@ -142,6 +213,13 @@ func (m *Port) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_Port proto.InternalMessageInfo
+
+func (m *Port) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
 
 func (m *Port) GetName() string {
 	if m != nil {
@@ -216,6 +294,8 @@ func (m *Port) GetCode() string {
 func init() {
 	proto.RegisterType((*PortBatchReq)(nil), "proto.PortBatchReq")
 	proto.RegisterType((*PortBatchRsp)(nil), "proto.PortBatchRsp")
+	proto.RegisterType((*GetPortsReq)(nil), "proto.GetPortsReq")
+	proto.RegisterType((*GetPortsRsp)(nil), "proto.GetPortsRsp")
 	proto.RegisterType((*Port)(nil), "proto.Port")
 }
 
@@ -224,25 +304,28 @@ func init() {
 }
 
 var fileDescriptor_729c3d36e9010a8e = []byte{
-	// 284 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x64, 0x91, 0x41, 0x4b, 0xc3, 0x40,
-	0x10, 0x85, 0x8d, 0x69, 0xda, 0x64, 0xe2, 0x41, 0x56, 0x91, 0xa5, 0xa7, 0x98, 0x53, 0x4e, 0x05,
-	0xeb, 0xdd, 0x83, 0x77, 0xa1, 0xac, 0xbf, 0x20, 0x6e, 0x06, 0x5d, 0x68, 0x77, 0xe2, 0xee, 0xa6,
-	0x50, 0x7f, 0xbc, 0xc8, 0x6c, 0x9a, 0x12, 0xf0, 0x94, 0x79, 0xdf, 0x7b, 0x93, 0x61, 0x66, 0x01,
-	0x7a, 0x72, 0x61, 0xd3, 0x3b, 0x0a, 0x24, 0xb2, 0xf8, 0xa9, 0x9f, 0xe0, 0x66, 0x47, 0x2e, 0xbc,
-	0xb6, 0x41, 0x7f, 0x29, 0xfc, 0x16, 0x8f, 0x90, 0x71, 0xc8, 0xcb, 0xa4, 0x4a, 0x9b, 0x72, 0x5b,
-	0x8e, 0xe9, 0x0d, 0x67, 0xd4, 0xe8, 0xd4, 0xcd, 0xbc, 0xc5, 0xf7, 0x42, 0xc2, 0xca, 0x0f, 0x5a,
-	0xa3, 0xe7, 0xa6, 0xa4, 0xc9, 0xd5, 0x24, 0xeb, 0xdf, 0x04, 0x16, 0x1c, 0x15, 0x02, 0x16, 0xb6,
-	0x3d, 0x60, 0xf4, 0x0b, 0x15, 0x6b, 0x66, 0xda, 0x84, 0x93, 0xbc, 0x1e, 0x19, 0xd7, 0xfc, 0x2b,
-	0x4d, 0x83, 0x0d, 0xee, 0x24, 0xd3, 0x88, 0x27, 0x29, 0xee, 0x21, 0x6b, 0xf7, 0xa6, 0xf5, 0x72,
-	0x51, 0xa5, 0x4d, 0xa1, 0x46, 0xc1, 0x79, 0x87, 0x9f, 0x86, 0xac, 0x97, 0x59, 0xe4, 0x93, 0x14,
-	0x15, 0x94, 0x9a, 0xc8, 0x75, 0xc6, 0xb6, 0x01, 0xbd, 0x5c, 0x56, 0x69, 0x93, 0xa8, 0x39, 0x12,
-	0x6b, 0xc8, 0x7b, 0x47, 0x47, 0x63, 0x35, 0xca, 0x55, 0x1c, 0x76, 0xd1, 0xec, 0x05, 0x73, 0xc0,
-	0x1f, 0xb2, 0x28, 0xf3, 0xd1, 0x9b, 0xb4, 0x78, 0x80, 0xe5, 0x60, 0xf7, 0xa4, 0xbd, 0x2c, 0xe2,
-	0xc8, 0xb3, 0x8a, 0xfb, 0x50, 0x87, 0x12, 0xce, 0xfb, 0x50, 0x87, 0xdb, 0x37, 0x28, 0x79, 0xff,
-	0x77, 0x74, 0x47, 0xa3, 0x51, 0xbc, 0xc0, 0xed, 0xce, 0x11, 0x9f, 0xe6, 0x72, 0x40, 0x71, 0x37,
-	0xbb, 0xf0, 0xf4, 0x0a, 0xeb, 0xff, 0xd0, 0xf7, 0xf5, 0xd5, 0xc7, 0x32, 0xd2, 0xe7, 0xbf, 0x00,
-	0x00, 0x00, 0xff, 0xff, 0x29, 0x51, 0xe3, 0x75, 0xc8, 0x01, 0x00, 0x00,
+	// 333 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x91, 0xb1, 0x4e, 0xc3, 0x30,
+	0x10, 0x86, 0x49, 0xd2, 0xb4, 0xe9, 0x05, 0x10, 0x3a, 0x10, 0xb2, 0x3a, 0x85, 0x4c, 0x99, 0xaa,
+	0x52, 0x24, 0x66, 0xc4, 0xc2, 0x5a, 0x85, 0x27, 0x08, 0xce, 0x09, 0x2c, 0xb5, 0xb9, 0xd4, 0x76,
+	0x2b, 0x95, 0x17, 0x60, 0xe3, 0x99, 0x91, 0x9d, 0xa6, 0x8a, 0xd4, 0x85, 0x29, 0xfe, 0xbf, 0xfb,
+	0x2f, 0x67, 0xdf, 0x0f, 0xd0, 0xb2, 0xb6, 0xf3, 0x56, 0xb3, 0x65, 0x8c, 0xfd, 0x27, 0x7f, 0x84,
+	0xcb, 0x15, 0x6b, 0xfb, 0x5a, 0x59, 0xf9, 0x55, 0xd2, 0x16, 0x1f, 0x20, 0x76, 0x26, 0x23, 0x82,
+	0x2c, 0x2a, 0xd2, 0x65, 0xda, 0xb9, 0xe7, 0xce, 0x53, 0x76, 0x95, 0xbc, 0x18, 0xb6, 0x98, 0x16,
+	0x05, 0x4c, 0xcc, 0x4e, 0x4a, 0x32, 0xae, 0x29, 0x28, 0x92, 0xb2, 0x97, 0xf9, 0x15, 0xa4, 0x6f,
+	0x64, 0x9d, 0xd9, 0x94, 0xb4, 0xcd, 0x17, 0x03, 0x69, 0xda, 0xff, 0x8c, 0xfa, 0x0d, 0x61, 0xe4,
+	0x34, 0x5e, 0x43, 0xa8, 0x6a, 0xff, 0xfb, 0x69, 0x19, 0xaa, 0x1a, 0x11, 0x46, 0x4d, 0xb5, 0x21,
+	0x11, 0x7a, 0xe2, 0xcf, 0x8e, 0x49, 0x65, 0x0f, 0x22, 0xea, 0x98, 0x3b, 0xbb, 0xbb, 0x49, 0xde,
+	0x35, 0x56, 0x1f, 0xc4, 0xc8, 0xe3, 0x5e, 0xe2, 0x1d, 0xc4, 0xd5, 0x5a, 0x55, 0x46, 0xc4, 0x59,
+	0x54, 0x4c, 0xcb, 0x4e, 0x38, 0xbf, 0xa6, 0x4f, 0xc5, 0x8d, 0x11, 0x63, 0xcf, 0x7b, 0x89, 0x19,
+	0xa4, 0x92, 0x59, 0xd7, 0xaa, 0xa9, 0x2c, 0x19, 0x31, 0xc9, 0xa2, 0x22, 0x28, 0x87, 0x08, 0x67,
+	0x90, 0xb4, 0x9a, 0xf7, 0xaa, 0x91, 0x24, 0x12, 0x3f, 0xec, 0xa4, 0x5d, 0xcd, 0xaa, 0x0d, 0x7d,
+	0x73, 0x43, 0x62, 0xda, 0xd5, 0x7a, 0x8d, 0xf7, 0x30, 0xde, 0x35, 0x6b, 0x96, 0x46, 0x80, 0x1f,
+	0x79, 0x54, 0xfe, 0x3d, 0x5c, 0x93, 0x48, 0x8f, 0xef, 0xe1, 0x9a, 0x96, 0x3f, 0x01, 0xa4, 0x6e,
+	0x21, 0xef, 0xa4, 0xf7, 0x4a, 0x12, 0xbe, 0xc0, 0xcd, 0x4a, 0xb3, 0x5b, 0xf6, 0x29, 0x12, 0xbc,
+	0x1d, 0x2c, 0xb2, 0xcf, 0x75, 0x76, 0x0e, 0x4d, 0x9b, 0x5f, 0x14, 0x01, 0x3e, 0x43, 0xd2, 0x87,
+	0x82, 0x78, 0x34, 0x0d, 0x42, 0x9b, 0x9d, 0x31, 0xd7, 0xb7, 0x08, 0x3e, 0xc6, 0x1e, 0x3f, 0xfd,
+	0x05, 0x00, 0x00, 0xff, 0xff, 0x01, 0xa5, 0xdc, 0x76, 0x54, 0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -257,7 +340,8 @@ const _ = grpc.SupportPackageIsVersion6
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type PortServiceClient interface {
-	ProcessPortBatch(ctx context.Context, in *PortBatchReq, opts ...grpc.CallOption) (*PortBatchRsp, error)
+	ProcessPortBatch(ctx context.Context, opts ...grpc.CallOption) (PortService_ProcessPortBatchClient, error)
+	GetPorts(ctx context.Context, in *GetPortsReq, opts ...grpc.CallOption) (PortService_GetPortsClient, error)
 }
 
 type portServiceClient struct {
@@ -268,59 +352,155 @@ func NewPortServiceClient(cc grpc.ClientConnInterface) PortServiceClient {
 	return &portServiceClient{cc}
 }
 
-func (c *portServiceClient) ProcessPortBatch(ctx context.Context, in *PortBatchReq, opts ...grpc.CallOption) (*PortBatchRsp, error) {
-	out := new(PortBatchRsp)
-	err := c.cc.Invoke(ctx, "/proto.PortService/ProcessPortBatch", in, out, opts...)
+func (c *portServiceClient) ProcessPortBatch(ctx context.Context, opts ...grpc.CallOption) (PortService_ProcessPortBatchClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_PortService_serviceDesc.Streams[0], "/proto.PortService/ProcessPortBatch", opts...)
 	if err != nil {
 		return nil, err
 	}
-	return out, nil
+	x := &portServiceProcessPortBatchClient{stream}
+	return x, nil
+}
+
+type PortService_ProcessPortBatchClient interface {
+	Send(*PortBatchReq) error
+	CloseAndRecv() (*PortBatchRsp, error)
+	grpc.ClientStream
+}
+
+type portServiceProcessPortBatchClient struct {
+	grpc.ClientStream
+}
+
+func (x *portServiceProcessPortBatchClient) Send(m *PortBatchReq) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *portServiceProcessPortBatchClient) CloseAndRecv() (*PortBatchRsp, error) {
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	m := new(PortBatchRsp)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *portServiceClient) GetPorts(ctx context.Context, in *GetPortsReq, opts ...grpc.CallOption) (PortService_GetPortsClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_PortService_serviceDesc.Streams[1], "/proto.PortService/GetPorts", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &portServiceGetPortsClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type PortService_GetPortsClient interface {
+	Recv() (*GetPortsRsp, error)
+	grpc.ClientStream
+}
+
+type portServiceGetPortsClient struct {
+	grpc.ClientStream
+}
+
+func (x *portServiceGetPortsClient) Recv() (*GetPortsRsp, error) {
+	m := new(GetPortsRsp)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
 }
 
 // PortServiceServer is the server API for PortService service.
 type PortServiceServer interface {
-	ProcessPortBatch(context.Context, *PortBatchReq) (*PortBatchRsp, error)
+	ProcessPortBatch(PortService_ProcessPortBatchServer) error
+	GetPorts(*GetPortsReq, PortService_GetPortsServer) error
 }
 
 // UnimplementedPortServiceServer can be embedded to have forward compatible implementations.
 type UnimplementedPortServiceServer struct {
 }
 
-func (*UnimplementedPortServiceServer) ProcessPortBatch(ctx context.Context, req *PortBatchReq) (*PortBatchRsp, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ProcessPortBatch not implemented")
+func (*UnimplementedPortServiceServer) ProcessPortBatch(srv PortService_ProcessPortBatchServer) error {
+	return status.Errorf(codes.Unimplemented, "method ProcessPortBatch not implemented")
+}
+func (*UnimplementedPortServiceServer) GetPorts(req *GetPortsReq, srv PortService_GetPortsServer) error {
+	return status.Errorf(codes.Unimplemented, "method GetPorts not implemented")
 }
 
 func RegisterPortServiceServer(s *grpc.Server, srv PortServiceServer) {
 	s.RegisterService(&_PortService_serviceDesc, srv)
 }
 
-func _PortService_ProcessPortBatch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PortBatchReq)
-	if err := dec(in); err != nil {
+func _PortService_ProcessPortBatch_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(PortServiceServer).ProcessPortBatch(&portServiceProcessPortBatchServer{stream})
+}
+
+type PortService_ProcessPortBatchServer interface {
+	SendAndClose(*PortBatchRsp) error
+	Recv() (*PortBatchReq, error)
+	grpc.ServerStream
+}
+
+type portServiceProcessPortBatchServer struct {
+	grpc.ServerStream
+}
+
+func (x *portServiceProcessPortBatchServer) SendAndClose(m *PortBatchRsp) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *portServiceProcessPortBatchServer) Recv() (*PortBatchReq, error) {
+	m := new(PortBatchReq)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
-	if interceptor == nil {
-		return srv.(PortServiceServer).ProcessPortBatch(ctx, in)
+	return m, nil
+}
+
+func _PortService_GetPorts_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(GetPortsReq)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
 	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/proto.PortService/ProcessPortBatch",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PortServiceServer).ProcessPortBatch(ctx, req.(*PortBatchReq))
-	}
-	return interceptor(ctx, in, info, handler)
+	return srv.(PortServiceServer).GetPorts(m, &portServiceGetPortsServer{stream})
+}
+
+type PortService_GetPortsServer interface {
+	Send(*GetPortsRsp) error
+	grpc.ServerStream
+}
+
+type portServiceGetPortsServer struct {
+	grpc.ServerStream
+}
+
+func (x *portServiceGetPortsServer) Send(m *GetPortsRsp) error {
+	return x.ServerStream.SendMsg(m)
 }
 
 var _PortService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "proto.PortService",
 	HandlerType: (*PortServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
+	Methods:     []grpc.MethodDesc{},
+	Streams: []grpc.StreamDesc{
 		{
-			MethodName: "ProcessPortBatch",
-			Handler:    _PortService_ProcessPortBatch_Handler,
+			StreamName:    "ProcessPortBatch",
+			Handler:       _PortService_ProcessPortBatch_Handler,
+			ClientStreams: true,
+		},
+		{
+			StreamName:    "GetPorts",
+			Handler:       _PortService_GetPorts_Handler,
+			ServerStreams: true,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
 	Metadata: "port.proto",
 }
